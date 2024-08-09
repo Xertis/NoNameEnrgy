@@ -1,7 +1,9 @@
 {
   "blocks": [
     "wire_off",
-    "wire_on"
+    "wire_on",
+    "and_on",
+    "and_off"
   ],
   "items": [],
   "entities": []
