@@ -1,42 +1,62 @@
 local module = {}
-local reg_blocks = {}
+local blocks = {}
+local registeredIDs = { }
 local tickFunctions = {}
 
-function module.reg(x, y, z)
-    table.insert(reg_blocks, {x, y, z})
+function module.add_block(x, y, z)
+    table.insert(blocks, {x, y, z})
 end
 
-function module.unreg(x, y, z)
-    for i, block in ipairs(reg_blocks) do
+function module.remove_block(x, y, z)
+    for i, block in ipairs(blocks) do
         if block[1] == x and block[2] == y and block[3] == z then
-            table.remove(reg_blocks, i)
+            table.remove(blocks, i)
             break
         end
     end
 end
 
-function module.reg_func(id, func)
-   tickFunctions[id] = func
+function module.register(id)
+   if registeredIDs[id] then return false end
+
+   tickFunctions[id] = on_tick
+   registeredIDs[id] = true
+
+   on_tick = nil
+
+   events.on
+   (
+      id..".placed",
+      module.add_block
+   )
+
+   events.on
+   (
+      id..".broken",
+      module.remove_block
+   )
+
+   return true
 end
 
 function module.tick()
-    for i, pos in ipairs(reg_blocks) do
+    for i, pos in ipairs(blocks) do
         local x, y, z = pos[1], pos[2], pos[3]
-        local func = tickFunctions[block.name(block.get(x, y, z))]
-        if func ~= nil then func(x, y, z) else module.unreg(x, y, z) end
+
+        tickFunctions[block.name(block.get(x, y, z))](x, y, z)
     end
 end
 
 function module.save()
-    local path = pack.data_file("bitwise", "blocks_tick_info.json")
-    file.write(path, json.tostring(({blocks = reg_blocks})))
+    local path = pack.data_file("bitwise", "ticked_blocks.json")
+    file.write(path, json.tostring(({blocks = blocks})))
 end
 
 function module.load()
-    local path = pack.data_file("bitwise", "blocks_tick_info.json")
+    local path = pack.data_file("bitwise", "ticked_blocks.json")
     if file.exists(path) then
         local data = file.read(path)
-        reg_blocks = json.parse(data)['blocks']
+        blocks = json.parse(data)['blocks']
     end
 end
 
