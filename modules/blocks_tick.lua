@@ -27,4 +27,17 @@ function module.tick()
     end
 end
 
+function module.save()
+    local path = pack.data_file("bitwise", "blocks_tick_info.json")
+    file.write(path, json.tostring(({blocks = reg_blocks})))
+end
+
+function module.load()
+    local path = pack.data_file("bitwise", "blocks_tick_info.json")
+    if file.exists(path) then
+        local data = file.read(path)
+        reg_blocks = json.parse(data)['blocks']
+    end
+end
+
 return module
