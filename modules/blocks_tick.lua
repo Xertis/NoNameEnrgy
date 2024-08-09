@@ -22,7 +22,8 @@ end
 function module.tick()
     for i, pos in ipairs(reg_blocks) do
         local x, y, z = pos[1], pos[2], pos[3]
-        tickFunctions[block.name(block.get(x, y, z))](x, y, z)
+        local func = tickFunctions[block.name(block.get(x, y, z))]
+        if func ~= nil then func(x, y, z) else module.unreg(x, y, z) end
     end
 end
 
