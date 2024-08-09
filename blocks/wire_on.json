@@ -2,12 +2,12 @@
     "hidden": false,
     "texture-faces":
     [
-        "wire_off",
-        "wire_off",
-        "hole_wire_off",
-        "hole_wire_off",
-        "wire_off",
-        "wire_off"
+        "wire_on",
+        "wire_on",
+        "hole_wire_on",
+        "hole_wire_on",
+        "wire_on",
+        "wire_on"
     ],
     "light-passing": true,
     "rotation": "pipe",
