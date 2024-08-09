@@ -1,0 +1,15 @@
+{
+    "hidden": false,
+    "texture-faces":
+    [
+        "hole_wire_off",
+        "hole_wire_off",
+        "or_off",
+        "hole_wire_off",
+        "or_off",
+        "or_off"
+    ],
+    "light-passing": true,
+    "rotation": "pipe",
+    "sky-light-passing": true
+}
