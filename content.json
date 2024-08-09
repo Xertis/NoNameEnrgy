@@ -3,7 +3,11 @@
     "wire_off",
     "wire_on",
     "and_on",
-    "and_off"
+    "and_off",
+    "not_off",
+    "not_on",
+    "or_off",
+    "or_on"
   ],
   "items": [],
   "entities": []
