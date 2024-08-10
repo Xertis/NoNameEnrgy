@@ -1,7 +1,6 @@
 local module = {}
 local blocks = {}
-local registeredIDs = { }
-local tickFunctions = {}
+local registeredFunctions = {}
 
 function module.add_block(x, y, z)
     table.insert(blocks, {x, y, z})
@@ -16,38 +15,21 @@ function module.remove_block(x, y, z)
     end
 end
 
-function module.register(...)
+function module.register(fn, ...)
     local ids = { ... }
 
     for i = 1, #ids do
         local id = ids[i]
 
-        if not registeredIDs[id] then
-            tickFunctions[id] = on_tick
-            registeredIDs[id] = true
-            
-            events.on
-            (
-                id..".placed",
-                module.add_block
-            )
-            
-            events.on
-                (
-                id..".broken",
-                module.remove_block
-            )
-        end 
+        if not registeredFunctions[id] then registeredFunctions[id] = fn end 
     end
-
-    on_tick = nil
 end
 
 function module.tick()
     for i, pos in ipairs(blocks) do
         local x, y, z = pos[1], pos[2], pos[3]
 
-        tickFunctions[block.name(block.get(x, y, z))](x, y, z)
+        registeredFunctions[block.name(block.get(x, y, z))](x, y, z)
     end
 end
 

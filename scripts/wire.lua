@@ -1,10 +1,16 @@
 local blocks_tick = require 'bitwise:blocks_tick'
 local arrow = require 'bitwise:logic/arrow'
 
-on_broken = arrow.broken
+function on_broken(x, y, z)
+    blocks_tick.remove_block(x, y, z)
 
-on_placed = arrow.placed
+    arrow.broken(x, y, z)
+end
 
-on_tick = arrow.tick
+function on_placed(x, y, z)
+    arrow.placed(x, y, z)
 
-blocks_tick.register("bitwise:wire_off", "bitwise:wire_on")
+    blocks_tick.add_block(x, y, z)
+end
+
+blocks_tick.register(arrow.tick, "bitwise:wire_off", "bitwise:wire_on")
