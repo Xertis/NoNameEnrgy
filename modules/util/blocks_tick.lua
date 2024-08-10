@@ -1,6 +1,11 @@
 local module = {}
 local blocks = {}
+local defferedCalls = { }
 local registeredFunctions = {}
+
+function module.call_after_tick(fn)
+    table.insert(defferedCalls, fn)
+end
 
 function module.add_block(x, y, z)
     table.insert(blocks, {x, y, z})
@@ -26,10 +31,18 @@ function module.register(fn, ...)
 end
 
 function module.tick()
-    for i, pos in ipairs(blocks) do
+    for _, pos in ipairs(blocks) do
         local x, y, z = pos[1], pos[2], pos[3]
 
-        registeredFunctions[block.name(block.get(x, y, z))](x, y, z)
+        local fn = registeredFunctions[block.name(block.get(x, y, z))]
+
+        if fn then fn(x, y, z) end
+    end
+
+    while #defferedCalls ~= 0 do
+        local def = table.remove(defferedCalls, 1)
+
+        def()
     end
 end
 
