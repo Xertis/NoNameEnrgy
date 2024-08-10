@@ -1,0 +1,6 @@
+{
+    "hidden": false,
+    "texture":"source",
+    "light-passing": true,
+    "sky-light-passing": true
+}
