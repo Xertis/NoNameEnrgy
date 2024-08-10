@@ -1,3 +1,5 @@
+local metadata = require "bitwise:util/metadata"
+
 local state_api = { }
 
 local enabledPostfix, disabledPostfix = "_on", "_off"
