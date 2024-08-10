@@ -1,5 +1,4 @@
 local state_api = require "bitwise:logic/state_api"
-local blocks_tick = require "bitwise:util/blocks_tick"
 local metadata = require "bitwise:util/metadata"
 
 local arrow = { }
