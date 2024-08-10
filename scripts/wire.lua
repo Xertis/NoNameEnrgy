@@ -11,5 +11,4 @@ on_placed = arrow.placed
 
 on_tick = arrow.tick
 
-blocks_tick.register("bitwise:wire_off")
-blocks_tick.register("bitwise:wire_on")
+blocks_tick.register("bitwise:wire_off", "bitwise:wire_on")

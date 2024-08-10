@@ -16,27 +16,31 @@ function module.remove_block(x, y, z)
     end
 end
 
-function module.register(id)
-   if registeredIDs[id] then return false end
+function module.register(...)
+    local ids = { ... }
 
-   tickFunctions[id] = on_tick
-   registeredIDs[id] = true
+    for i = 1, #ids do
+        local id = ids[i]
 
-   on_tick = nil
+        if not registeredIDs[id] then
+            tickFunctions[id] = on_tick
+            registeredIDs[id] = true
+            
+            events.on
+            (
+                id..".placed",
+                module.add_block
+            )
+            
+            events.on
+                (
+                id..".broken",
+                module.remove_block
+            )
+        end 
+    end
 
-   events.on
-   (
-      id..".placed",
-      module.add_block
-   )
-
-   events.on
-   (
-      id..".broken",
-      module.remove_block
-   )
-
-   return true
+    on_tick = nil
 end
 
 function module.tick()
