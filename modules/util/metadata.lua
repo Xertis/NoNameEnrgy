@@ -1,3 +1,5 @@
+local bson = require 'bitwise:util/bson'
+
 local metadata = { blocks = { }, global = { } }
 
 local data =
@@ -102,15 +104,15 @@ function metadata.load()
 		return
 	end
 
-	data = json.parse(file.read(metadata.get_save_file()))
+	data = bson.read_file(metadata.get_save_file())
 end
 
 function metadata.save()
-	file.write(metadata.get_save_file(), json.tostring(data))
+	bson.write_file(metadata.get_save_file(), data)
 end
 
 function metadata.get_save_file()
-	return pack.data_file("bitwise", "metadata.json")
+	return pack.data_file("bitwise", "metadata.bson")
 end
 
 return metadata

@@ -1,3 +1,4 @@
+local dbuf = require 'core:data_buffer'
 local bson = {}
 local sys = {}
 
@@ -92,5 +93,16 @@ function bson.decode(buf)
     return sys.load_table(buf)
 end
 
+function bson.read_file(path)
+    return bson.decode(dbuf(file.read_bytes(path)))
+end
+
+function bson.write_file(path, arr)
+    local buf = dbuf()
+
+    bson.encode(buf, arr)
+
+    file.write_bytes(path, buf:get_bytes())
+end
 
 return bson

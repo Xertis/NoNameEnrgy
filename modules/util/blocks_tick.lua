@@ -1,3 +1,4 @@
+local bson = require "bitwise:util/bson"
 local module = {}
 local blocks = {}
 local defferedCalls = { }
@@ -47,16 +48,15 @@ function module.tick()
 end
 
 function module.save()
-    local path = pack.data_file("bitwise", "ticked_blocks.json")
-    file.write(path, json.tostring(({blocks = blocks})))
+    local path = pack.data_file("bitwise", "ticked_blocks.bson")
+    
+    bson.write_file(path, blocks)
 end
 
 function module.load()
-    local path = pack.data_file("bitwise", "ticked_blocks.json")
-    if file.exists(path) then
-        local data = file.read(path)
-        blocks = json.parse(data)['blocks']
-    end
+    local path = pack.data_file("bitwise", "ticked_blocks.bson")
+
+    if file.exists(path) then blocks = bson.read_file(path) end
 end
 
 return module
