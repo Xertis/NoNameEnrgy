@@ -13,4 +13,8 @@ function state_api.set_active(x, y, z, state)
     block.set(x, y, z, block.index(name:sub(1, #name - #postfix)), block.get_states(x, y, z))
 end
 
+function state_api.switch(x, y, z)
+    state_api.set_active(x, y, z, not state_api.is_active(x, y, z))
+end
+
 return state_api
