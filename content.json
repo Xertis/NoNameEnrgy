@@ -10,6 +10,12 @@
     "or_on",
     "source"
   ],
-  "items": [],
+  "items": [
+    "and_off.item",
+    "or_off.item",
+    "wire_off.item",
+    "not_off.item",
+    "source.item"
+  ],
   "entities": []
 }
