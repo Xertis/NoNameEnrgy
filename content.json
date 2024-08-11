@@ -7,13 +7,25 @@
     "not_off",
     "not_on",
     "source_off",
-    "source_on"
+    "source_on",
+    "nand_off",
+    "nand_on",
+    "nor_off",
+    "nor_on",
+    "xnor_off",
+    "xnor_on",
+    "xor_off",
+    "xor_on"
   ],
   "items": [
     "and",
     "not",
     "source",
-    "wire"
+    "wire",
+    "nand",
+    "nor",
+    "xnor",
+    "xor"
   ],
   "entities": []
 }

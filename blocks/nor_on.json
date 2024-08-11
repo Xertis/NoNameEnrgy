@@ -1,0 +1,17 @@
+{
+    "texture-faces":
+    [
+        "hole_wire_on",
+        "hole_wire_on",
+        "nor_on",
+        "hole_wire_on",
+        "nor_on",
+        "nor_on"
+    ],
+    "light-passing": true,
+    "hidden": true,
+    "rotation": "pipe",
+    "sky-light-passing": true,
+    "script-name": "nor",
+    "shadeless": true
+}

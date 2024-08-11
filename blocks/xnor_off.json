@@ -1,0 +1,16 @@
+{
+    "texture-faces":
+    [
+        "hole_wire_off",
+        "hole_wire_off",
+        "xnor_off",
+        "hole_wire_off",
+        "xnor_off",
+        "xnor_off"
+    ],
+    "light-passing": true,
+    "rotation": "pipe",
+    "sky-light-passing": true,
+    "script-name": "xnor",
+    "picking-item": "bitwise:xnor"
+}

@@ -1,0 +1,16 @@
+{
+    "texture-faces":
+    [
+        "hole_wire_off",
+        "hole_wire_off",
+        "nor_off",
+        "hole_wire_off",
+        "nor_off",
+        "nor_off"
+    ],
+    "light-passing": true,
+    "rotation": "pipe",
+    "sky-light-passing": true,
+    "script-name": "nor",
+    "picking-item": "bitwise:nor"
+}

@@ -1,0 +1,16 @@
+{
+    "texture-faces":
+    [
+        "hole_wire_off",
+        "hole_wire_off",
+        "xor_off",
+        "hole_wire_off",
+        "xor_off",
+        "xor_off"
+    ],
+    "light-passing": true,
+    "rotation": "pipe",
+    "sky-light-passing": true,
+    "script-name": "xor",
+    "picking-item": "bitwise:xor"
+}
