@@ -1,5 +1,6 @@
 local state_api = require "bitwise:logic/state_api"
 local metadata = require "bitwise:util/metadata"
+local blocks_tick = require "bitwise:util/blocks_tick"
 local direction = require "bitwise:util/direction"
 
 local signals = { }
@@ -25,22 +26,24 @@ local function canDisable(x, y, z)
 end
 
 function signals.impulse(x, y, z, type)
-    if
-    not string.starts_with(block.name(block.get(x, y, z)), "bitwise:wire") or
-    (state_api.is_active(x, y, z) == type) or
-    (type == false and not canDisable(x, y, z)) or
-    not state_api.set_active(x, y, z, type)
-    then return false end
-
-    metadata.blocks.set_property(x, y, z, "impulse", nil)
-
-    x, y, z = direction.get_front_block(x, y, z)
-
-    if string.starts_with(block.name(block.get(x, y, z)), "bitwise:wire") then
-        metadata.blocks.set_property(x, y, z, "impulse", type)
-    end
-    
-    return true
+    blocks_tick.call_after_tick(
+        function()
+            if
+            not string.starts_with(block.name(block.get(x, y, z)), "bitwise:wire") or
+            (state_api.is_active(x, y, z) == type) or
+            (type == false and not canDisable(x, y, z)) or
+            not state_api.set_active(x, y, z, type)
+            then return end
+        
+            metadata.blocks.set_property(x, y, z, "impulse", nil)
+        
+            x, y, z = direction.get_front_block(x, y, z)
+        
+            if string.starts_with(block.name(block.get(x, y, z)), "bitwise:wire") then
+                metadata.blocks.set_property(x, y, z, "impulse", type)
+            end
+        end
+    )
 end
 
 return signals
