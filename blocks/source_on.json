@@ -4,5 +4,6 @@
     "light-passing": true,
     "sky-light-passing": true,
     "rotation": "pipe",
-    "script-name": "source"
+    "script-name": "source",
+    "shadeless": true
 }

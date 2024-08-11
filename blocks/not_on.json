@@ -13,5 +13,5 @@
     "rotation": "pipe",
     "script-name": "not",
     "sky-light-passing": true,
-    "emission":[0, 9, 0]
+    "shadeless": true
 }

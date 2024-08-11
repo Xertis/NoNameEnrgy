@@ -9,8 +9,7 @@
     "or_off",
     "or_on",
     "source_off",
-    "source_on",
-    "source"
+    "source_on"
   ],
   "items": [
     "and"
