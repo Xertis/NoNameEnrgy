@@ -16,8 +16,8 @@
     "xnor_on",
     "xor_off",
     "xor_on",
-    "t_trig_off",
-    "t_trig_on"
+    "t_t_off",
+    "t_t_on"
   ],
   "items": [
     "and",
