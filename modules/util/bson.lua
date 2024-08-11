@@ -10,7 +10,8 @@ local TYPES = {
     number = 2,
     float = 3,
     string = 4,
-    table = 5
+    table = 5,
+    bool = 6
 }
 
 function sys.put_item(buf, item)
@@ -25,9 +26,12 @@ function sys.put_item(buf, item)
     elseif type(item) == 'string' then
         buf:put_byte(TYPES.string)
         buf:put_string(item)
-    else
+    elseif type(item) == 'table' then
         buf:put_byte(TYPES.table)
         sys.save_table(buf, item)
+    else
+        buf:put_byte(TYPES.bool)
+        buf:put_bool(item)
     end
 end
 
@@ -38,9 +42,11 @@ function sys.get_item(buf)
     elseif type_item == TYPES.float then
         return buf:get_double()
     elseif type_item == TYPES.string then
-        buf:get_string()
+        return buf:get_string()
+    elseif type_item == TYPES.table then
+        return sys.load_table(buf) 
     else
-        return sys.load_table(buf)
+        return buf:get_bool()
     end
 end
 
