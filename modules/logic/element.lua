@@ -7,7 +7,7 @@ local element = { }
 
 function element:tick(x, y, z)
     local impulseType = metadata.blocks.get_property(x, y, z, "impulse")
-
+    
     if impulseType ~= nil then
         signals.impulse(x, y, z, impulseType)
     end

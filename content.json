@@ -11,11 +11,7 @@
     "source"
   ],
   "items": [
-    "and_off.item",
-    "or_off.item",
-    "wire_off.item",
-    "not_off.item",
-    "source.item"
+    "and"
   ],
   "entities": []
 }
