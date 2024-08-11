@@ -9,6 +9,7 @@
         "and_on"
     ],
     "light-passing": true,
+    "hidden": true,
     "rotation": "pipe",
     "sky-light-passing": true,
     "script-name": "and",

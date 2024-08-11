@@ -1,5 +1,5 @@
 {
-    "hidden": false,
+    "hidden": true,
     "texture":"source_on",
     "light-passing": true,
     "sky-light-passing": true,
