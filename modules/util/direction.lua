@@ -17,4 +17,12 @@ function direction.get_front_block(x, y, z,  mul)
     return x + rx * mul, y + ry * mul, z + rz * mul
 end
 
+function direction.get_side_block(x, y, z,  mul)
+    mul = mul or 1
+
+    local rx, ry, rz = block.get_X(x, y, z)
+
+    return x + rx * mul, y + ry * mul, z + rz * mul
+end
+
 return direction

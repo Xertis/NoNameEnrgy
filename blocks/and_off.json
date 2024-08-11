@@ -10,5 +10,6 @@
     ],
     "light-passing": true,
     "rotation": "pipe",
-    "sky-light-passing": true
+    "sky-light-passing": true,
+    "script-name": "and"
 }
