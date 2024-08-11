@@ -1,0 +1,8 @@
+{
+    "hidden": false,
+    "texture":"source_on",
+    "light-passing": true,
+    "sky-light-passing": true,
+    "rotation": "pipe",
+    "script-name": "source"
+}

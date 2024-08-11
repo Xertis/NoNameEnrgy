@@ -1,8 +1,13 @@
 local blocks_tick = require 'bitwise:util/blocks_tick'
 local metadata = require "bitwise:util/metadata"
-
+local t = 0
 function on_world_tick(tps)
-    blocks_tick.tick()
+    if t == 0 then
+        blocks_tick.tick()
+        t = 0
+    else
+        t = t + 1
+    end
 end
 
 function on_world_save()

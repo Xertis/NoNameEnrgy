@@ -20,9 +20,4 @@ function on_placed(x, y, z)
     blocks_tick.add_block(x, y, z)
 end
 
-function on_interact(x, y, z)
-    signals.impulse(x, y, z, not state_api.is_active(x, y, z))
-    return true
-end
-
 blocks_tick.register(function(x, y, z) wire:tick(x, y, z) end, "bitwise:wire_off", "bitwise:wire_on")
