@@ -15,7 +15,9 @@
     "xnor_off",
     "xnor_on",
     "xor_off",
-    "xor_on"
+    "xor_on",
+    "t_trig_off",
+    "t_trig_on"
   ],
   "items": [
     "and",
@@ -25,7 +27,8 @@
     "nand",
     "nor",
     "xnor",
-    "xor"
+    "xor",
+    "t_t"
   ],
   "entities": []
 }
