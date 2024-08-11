@@ -12,5 +12,6 @@
     "light-passing": true,
     "rotation": "pipe",
     "script-name": "not",
-    "sky-light-passing": true
+    "sky-light-passing": true,
+    "picking-item": "bitwise:not"
 }

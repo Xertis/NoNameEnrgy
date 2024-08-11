@@ -1,5 +1,4 @@
 {
-    "hidden": false,
     "texture-faces":
     [
         "wire_off",
@@ -12,5 +11,6 @@
     "light-passing": true,
     "script-name": "wire",
     "rotation": "pipe",
-    "sky-light-passing": true
+    "sky-light-passing": true,
+    "picking-item": "bitwise:wire"
 }

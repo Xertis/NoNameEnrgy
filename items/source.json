@@ -1,0 +1,5 @@
+{
+	"icon-type": "sprite",
+	"icon": "items:source",
+	"placing-block": "bitwise:source_off"
+}

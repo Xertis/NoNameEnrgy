@@ -10,7 +10,10 @@
     "source_on"
   ],
   "items": [
-    "and"
+    "and",
+    "not",
+    "source",
+    "wire"
   ],
   "entities": []
 }
