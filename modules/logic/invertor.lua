@@ -12,9 +12,10 @@ function invertor:update(x, y, z)
     local fx, fy, fz = direction.get_front_block(x, y, z)
     local active = not state_api.is_active(bx, by, bz)
 
-    if state_api.is_active(x, y, z) ~= active then state_api.set_active(x, y, z, active) end
-
-    signals.impulse(fx, fy, fz, active)
+    if state_api.is_active(x, y, z) ~= active then
+        state_api.set_active(x, y, z, active)
+        signals.impulse(fx, fy, fz, active)
+    end
 end
 
 function invertor:placed(x, y, z)
