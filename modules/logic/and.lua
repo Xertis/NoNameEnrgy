@@ -20,12 +20,11 @@ function and_e:update(x, y, z)
     if active1 == true and active2 == true then
         active = true
     end
-    
+
     if state_api.is_active(x, y, z) ~= active then
         state_api.set_active(x, y, z, active)
         signals.impulse(fx, fy, fz, active)
     end
-    print(active1, active2)
 
 end
 
