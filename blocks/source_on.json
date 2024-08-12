@@ -1,6 +1,14 @@
 {
+    "texture-faces":
+    [
+        "source_on",
+        "source_on",
+        "__plug_on",
+        "hole_wire_on",
+        "source_on",
+        "source_on"
+    ],
     "hidden": true,
-    "texture":"source_on",
     "light-passing": true,
     "sky-light-passing": true,
     "rotation": "pipe",
