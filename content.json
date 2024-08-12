@@ -12,8 +12,6 @@
     "nand_on",
     "nor_off",
     "nor_on",
-    "xnor_off",
-    "xnor_on",
     "xor_off",
     "xor_on",
     "t_t_off",
