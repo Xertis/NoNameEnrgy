@@ -10,13 +10,15 @@ setmetatable(t_t, t_t)
 function t_t:update(x, y, z)
     local inputActive = state_api.is_active(direction.get_front_block(x, y, z, -1))
 
-    if inputActive and metadata.blocks.get_property(x, y, z, "previousInput") ~= inputActive then
-      state_api.switch(x, y, z)
-      local fx, fy, fz = direction.get_front_block(x, y, z)
-      signals.impulse(fx, fy, fz, state_api.is_active(x, y, z))
-    end
+    if metadata.blocks.get_property(x, y, z, "previousInput") ~= inputActive then
+      metadata.blocks.set_property(x, y, z, "previousInput", inputActive)
 
-    metadata.blocks.set_property(x, y, z, "previousInput", inputActive)
+      if inputActive then
+        state_api.switch(x, y, z)
+        local fx, fy, fz = direction.get_front_block(x, y, z)
+        signals.impulse(fx, fy, fz, state_api.is_active(x, y, z))
+      end
+    end
 end
 
 function t_t:placed(x, y, z)
