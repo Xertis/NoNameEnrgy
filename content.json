@@ -17,7 +17,9 @@
     "xor_off",
     "xor_on",
     "t_t_off",
-    "t_t_on"
+    "t_t_on",
+    "r_t_off",
+    "r_t_on"
   ],
   "items": [
     "and",

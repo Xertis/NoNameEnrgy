@@ -16,7 +16,7 @@ function pattern:update(x, y, z, func)
     local active1 = state_api.is_active(sx, sy, sz)
     local active2 = state_api.is_active(sx2, sy2, sz2)
 
-    local active = func(active1, active2)
+    local active = func(active1, active2, state_api.is_active(x, y, z))
 
     if state_api.is_active(x, y, z) ~= active then
         state_api.set_active(x, y, z, active)
