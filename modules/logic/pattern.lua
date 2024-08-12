@@ -25,9 +25,9 @@ function pattern:update(x, y, z, func)
 
 end
 
-function pattern:placed(x, y, z)
+function pattern:placed(x, y, z, func)
     metadata.blocks.set_property(x, y, z, "frontBlock", { block.get_Y(x, y, z) })
-    self:update(x, y, z)
+    self:update(x, y, z, func)
 end
 
 return pattern

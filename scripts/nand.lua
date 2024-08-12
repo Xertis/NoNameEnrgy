@@ -14,7 +14,7 @@ end
 function on_placed(x, y, z)
     nand:placed(x, y, z, func)
 
-    on_update(x, y, z)
+    nand:update(x, y, z, func)
 end
 
 function on_update(x, y, z)

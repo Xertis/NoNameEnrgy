@@ -14,7 +14,7 @@ end
 function on_placed(x, y, z)
     xor:placed(x, y, z, func)
 
-    on_update(x, y, z)
+    xor:update(x, y, z, func)
 end
 
 function on_update(x, y, z)
