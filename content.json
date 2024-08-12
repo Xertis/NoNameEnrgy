@@ -12,8 +12,6 @@
     "nand_on",
     "nor_off",
     "nor_on",
-    "xnor_off",
-    "xnor_on",
     "xor_off",
     "xor_on",
     "t_t_off",
@@ -23,14 +21,13 @@
   ],
   "items": [
     "and",
-    "not",
-    "source",
-    "wire",
     "nand",
     "nor",
-    "xnor",
-    "xor",
-    "t_t"
+    "not",
+    "source",
+    "t_t",
+    "wire",
+    "xor"
   ],
   "entities": []
 }

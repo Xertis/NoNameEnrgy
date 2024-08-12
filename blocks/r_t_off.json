@@ -11,6 +11,7 @@
     "light-passing": true,
     "rotation": "pipe",
     "sky-light-passing": true,
+    "hidden":true,
     "script-name": "r_t",
     "picking-item": "bitwise:t_t"
 }

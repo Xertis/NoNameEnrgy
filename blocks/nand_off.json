@@ -10,6 +10,7 @@
     ],
     "light-passing": true,
     "rotation": "pipe",
+    "hidden":true,
     "sky-light-passing": true,
     "script-name": "nand",
     "picking-item": "bitwise:nand"

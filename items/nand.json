@@ -1,5 +1,5 @@
 {
 	"icon-type": "sprite",
 	"icon": "items:nand",
-	"placing-block": "bitwise:and_off"
+	"placing-block": "bitwise:nand_off"
 }
