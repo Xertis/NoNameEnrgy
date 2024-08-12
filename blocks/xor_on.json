@@ -12,6 +12,6 @@
     "hidden": true,
     "rotation": "pipe",
     "sky-light-passing": true,
-    "script-name": "and",
+    "script-name": "xor",
     "shadeless": true
 }
