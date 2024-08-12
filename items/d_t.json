@@ -1,4 +1,5 @@
 {
+	"caption": "d_t",
 	"icon-type": "sprite",
 	"icon": "items:d_t",
 	"placing-block": "bitwise:d_t_off"

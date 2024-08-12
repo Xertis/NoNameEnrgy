@@ -1,0 +1,10 @@
+source=source
+and=AND
+nand=NAND
+wire=wire
+xor=exclusive OR
+nor=NOR
+not=NOT
+d_t=D-trigger
+t_t=T-trigger
+r_t=RS-trigger
