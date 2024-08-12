@@ -3,11 +3,11 @@ local state_api = require "bitwise:logic/state_api"
 local metadata = require "bitwise:util/metadata"
 local direction = require "bitwise:util/direction"
 
-local and_e = { __index = require 'bitwise:logic/element' }
+local pattern = { __index = require 'bitwise:logic/element' }
 
-setmetatable(and_e, and_e)
+setmetatable(pattern, pattern)
 
-function and_e:update(x, y, z)
+function pattern:update(x, y, z, func)
     local fx, fy, fz = direction.get_front_block(x, y, z)
 
     local sx, sy, sz = direction.get_side_block(x, y, z)
@@ -16,10 +16,7 @@ function and_e:update(x, y, z)
     local active1 = state_api.is_active(sx, sy, sz)
     local active2 = state_api.is_active(sx2, sy2, sz2)
 
-    local active = false
-    if active1 == true and active2 == true then
-        active = true
-    end
+    local active = func(active1, active2)
 
     if state_api.is_active(x, y, z) ~= active then
         state_api.set_active(x, y, z, active)
@@ -28,9 +25,9 @@ function and_e:update(x, y, z)
 
 end
 
-function and_e:placed(x, y, z)
+function pattern:placed(x, y, z)
     metadata.blocks.set_property(x, y, z, "frontBlock", { block.get_Y(x, y, z) })
     self:update(x, y, z)
 end
 
-return and_e
+return pattern
