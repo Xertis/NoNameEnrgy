@@ -16,11 +16,8 @@ end
 function element:placed(x, y, z)
     metadata.blocks.set_property(x, y, z, "frontBlock", { block.get_Y(x, y, z) })
 
-    local bx, by, bz = direction.get_front_block(x, y, z, -1)
-    local fx, fy, fz = direction.get_front_block(bx, by, bz)
-
-    if fx == x and fy == y and fz == z and string.starts_with(block.name(block.get(x, y, z)), "bitwise:wire") then
-        signals.impulse(x, y, z, state_api.is_active(bx, by, bz))
+    if not signals.can_disable(x, y, z) then
+        signals.impulse(x, y, z, true)
     end
 end
 
