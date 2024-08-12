@@ -17,7 +17,9 @@
     "t_t_off",
     "t_t_on",
     "r_t_off",
-    "r_t_on"
+    "r_t_on",
+    "d_t_off",
+    "d_t_on"
   ],
   "items": [
     "and",
@@ -28,7 +30,8 @@
     "t_t",
     "wire",
     "xor",
-    "r_t"
+    "r_t",
+    "d_t"
   ],
   "entities": []
 }
