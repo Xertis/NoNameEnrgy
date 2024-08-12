@@ -1,10 +1,10 @@
 {
     "texture-faces":
     [
-        "hole_wire_on",
-        "hole_wire_on",
+        "d_t_on",
         "hole_wire_on",
         "d_t_on_back",
+        "hole_wire_on",
         "d_t_on",
         "d_t_on"
     ],
