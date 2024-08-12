@@ -27,7 +27,8 @@
     "source",
     "t_t",
     "wire",
-    "xor"
+    "xor",
+    "r_t"
   ],
   "entities": []
 }

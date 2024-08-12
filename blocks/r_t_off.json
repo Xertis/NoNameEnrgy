@@ -4,14 +4,14 @@
         "hole_wire_off",
         "hole_wire_off",
         "hole_wire_off",
-        "t_t_off_back",
-        "t_t_off",
-        "t_t_off"
+        "r_t_off_back",
+        "r_t_off",
+        "r_t_off"
     ],
     "light-passing": true,
     "rotation": "pipe",
     "sky-light-passing": true,
     "hidden":true,
     "script-name": "r_t",
-    "picking-item": "bitwise:t_t"
+    "picking-item": "bitwise:r_t"
 }
