@@ -5,8 +5,8 @@
         "hole_wire_on",
         "xor_on",
         "hole_wire_on",
-        "and_on",
-        "and_on"
+        "xor_on",
+        "xor_on"
     ],
     "light-passing": true,
     "hidden": true,
