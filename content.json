@@ -21,14 +21,13 @@
   ],
   "items": [
     "and",
-    "not",
-    "source",
-    "wire",
     "nand",
     "nor",
-    "xnor",
-    "xor",
-    "t_t"
+    "not",
+    "source",
+    "t_t",
+    "wire",
+    "xor"
   ],
   "entities": []
 }

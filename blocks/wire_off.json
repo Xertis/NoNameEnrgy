@@ -11,6 +11,7 @@
     "light-passing": true,
     "script-name": "wire",
     "rotation": "pipe",
+    "hidden":true,
     "sky-light-passing": true,
     "picking-item": "bitwise:wire"
 }
