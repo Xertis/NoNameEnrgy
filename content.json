@@ -1,4 +1,18 @@
 {
+  "entities": [],
+  "items": [
+    "and",
+    "nand",
+    "nor",
+    "not",
+    "source",
+    "t_t",
+    "wire",
+    "xor",
+    "r_t",
+    "d_t",
+    "instant"
+  ],
   "blocks": [
     "wire_off",
     "wire_on",
@@ -19,19 +33,8 @@
     "r_t_off",
     "r_t_on",
     "d_t_off",
-    "d_t_on"
-  ],
-  "items": [
-    "and",
-    "nand",
-    "nor",
-    "not",
-    "source",
-    "t_t",
-    "wire",
-    "xor",
-    "r_t",
-    "d_t"
-  ],
-  "entities": []
+    "d_t_on",
+    "instant_off",
+    "instant_on"
+  ]
 }

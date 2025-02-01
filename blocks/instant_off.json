@@ -1,0 +1,17 @@
+{
+    "texture-faces":
+    [
+        "instant_off",
+        "instant_off",
+        "hole_wire_off",
+        "hole_wire_off",
+        "instant_off",
+        "instant_off"
+    ],
+    "light-passing": true,
+    "script-name": "instant",
+    "rotation": "pipe",
+    "hidden":true,
+    "sky-light-passing": true,
+    "picking-item": "bitwise:instant"
+}

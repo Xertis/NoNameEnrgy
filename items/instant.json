@@ -1,0 +1,5 @@
+{
+	"icon-type": "sprite",
+	"icon": "items:instant",
+	"placing-block": "bitwise:instant_off"
+}
