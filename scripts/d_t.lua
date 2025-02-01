@@ -1,7 +1,7 @@
 local metadata = require "bitwise:util/metadata"
 local d_t = require 'bitwise:logic/pattern'
 
-local function func(data, write, prev)
+local function func(data, write, _, prev)
     if not write then return prev
     else return data end
 end

@@ -8,15 +8,19 @@ local pattern = { __index = require 'bitwise:logic/element' }
 setmetatable(pattern, pattern)
 
 function pattern:update(x, y, z, func)
+
     local fx, fy, fz = direction.get_front_block(x, y, z)
 
     local sx, sy, sz = direction.get_side_block(x, y, z)
     local sx2, sy2, sz2 = direction.get_side_block(x, y, z, -1)
 
+    local sx3, sy3, sz3 = direction.get_front_block(x, y, z, -1)
+
     local active1 = state_api.is_active(sx, sy, sz)
     local active2 = state_api.is_active(sx2, sy2, sz2)
+    local active3 = state_api.is_active(sx3, sy3, sz3)
 
-    local active = func(active1, active2, state_api.is_active(x, y, z))
+    local active = func(active1, active2, active3, state_api.is_active(x, y, z))
 
     if state_api.is_active(x, y, z) ~= active then
         state_api.set_active(x, y, z, active)
