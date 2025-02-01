@@ -1,7 +1,7 @@
 local metadata = require "bitwise:util/metadata"
 local r_t = require 'bitwise:logic/pattern'
 
-local function func(r, s, _, c)
+local function func(r, s, c)
     if (r and s) or r then return false
     elseif s then return true
     else return c end
