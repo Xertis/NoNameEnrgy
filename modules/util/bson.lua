@@ -1,4 +1,4 @@
-local dbuf = require 'core:data_buffer'
+local dbuf = require 'util/data_buffer'
 local bson = {}
 local sys = {}
 
@@ -17,36 +17,32 @@ local TYPES = {
 function sys.put_item(buf, item)
     if type(item) == 'number' then
         if item % 1 == 0 then
-            buf:put_byte(TYPES.number)
-            buf:put_number(item)
+            buf:pack("<Bl", {TYPES.number, item})
         else
-            buf:put_byte(TYPES.float)
-            buf:put_double(item)
+            buf:pack("<BD", {TYPES.float, item})
         end
     elseif type(item) == 'string' then
-        buf:put_byte(TYPES.string)
-        buf:put_string(item)
+        buf:pack("<BS", {TYPES.string, item})
     elseif type(item) == 'table' then
-        buf:put_byte(TYPES.table)
+        buf:pack("<B", {TYPES.table})
         sys.save_table(buf, item)
     else
-        buf:put_byte(TYPES.bool)
-        buf:put_bool(item)
+        buf:pack("<B?", {TYPES.bool, item})
     end
 end
 
 function sys.get_item(buf)
-    local type_item = buf:get_byte()
+    local type_item = buf:unpack("<B")[1]
     if type_item == TYPES.number then
-        return buf:get_number()
+        return buf:unpack("<l")[1]
     elseif type_item == TYPES.float then
-        return buf:get_double()
+        return buf:unpack("<D")[1]
     elseif type_item == TYPES.string then
-        return buf:get_string()
+        return buf:unpack("<S")[1]
     elseif type_item == TYPES.table then
-        return sys.load_table(buf) 
+        return sys.load_table(buf)
     else
-        return buf:get_bool()
+        return buf:unpack("<?")[1]
     end
 end
 
@@ -59,12 +55,12 @@ function sys.get_full_len(tbl)
 end
 
 function sys.load_table(buf)
-    local len = buf:get_uint32()
+    local len = buf:unpack("<I")[1]
     local res = {}
     for i=1, len do
-        local type_item = buf:get_byte()
+        local type_item = buf:unpack("<B")[1]
         if type_item == TYPES.hashmap then
-            local key = buf:get_string()
+            local key = buf:unpack("<S")[1]
             res[key] = sys.get_item(buf)
         else
             res[i] = sys.get_item(buf)
@@ -74,41 +70,39 @@ function sys.load_table(buf)
 end
 
 function sys.save_table(buf, tbl)
-    buf:put_uint32(sys.get_full_len(tbl))
+    buf:pack("<I", {sys.get_full_len(tbl)})
     for i, b in pairs(tbl) do
         if type(i) == 'string' then
-            buf:put_byte(TYPES.hashmap)
-            buf:put_string(i)
+            buf:pack("<BS", {TYPES.hashmap, i})
             sys.put_item(buf, b)
         else
-            buf:put_byte(TYPES.array)
+            buf:pack("<B", {TYPES.array})
             sys.put_item(buf, b)
         end
     end
 end
 
 function bson.encode(buf, arr)
-    buf:put_byte(VERSION)
-    buf:put_byte(TYPES.table)
+    buf:pack("<BB", {VERSION, TYPES.table})
     sys.save_table(buf, arr)
 end
 
 function bson.decode(buf)
-    local version = buf:get_byte()
-    buf:get_byte()
+    local version = buf:unpack("<BB")[1]
     return sys.load_table(buf)
 end
 
 function bson.read_file(path)
-    return bson.decode(dbuf(file.read_bytes(path)))
+    local x = bson.decode(dbuf:new(file.read_bytes(path)))
+    return x
 end
 
 function bson.write_file(path, arr)
-    local buf = dbuf()
+    local buf = dbuf:new()
 
     bson.encode(buf, arr)
 
-    file.write_bytes(path, buf:get_bytes())
+    file.write_bytes(path, buf.bytes)
 end
 
 return bson
