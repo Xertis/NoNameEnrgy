@@ -9,6 +9,9 @@ local TYPES = {
     I = 4,
     l = 8,
     L = 8,
+    F = 4,
+    D = 8,
+    S = 2,
     ['?'] = 1
 }
 
@@ -136,11 +139,11 @@ function module:unpack(format)
 
     for _=1, #formats do
         local pattern = formats[_]
-        local b = table.slice(self.bytes, i)
+        local b = table.slice(self.bytes, i, i+__get_size__(' ' .. pattern))
         if pattern == 'S' then
             local len = byteutil.unpack('<H', {b[1], b[2]})
+            table.insert(res, bc.bytes_to_string(self.bytes, i))
             i = i + len + 2
-            table.insert(res, bc.bytes_to_string(b))
         elseif pattern == 'D' then
             i = i + 8
             table.insert(res, bc.bytes_to_float(b, 'd'))
@@ -149,6 +152,7 @@ function module:unpack(format)
             table.insert(res, bc.bytes_to_float(b, 'f'))
         else
             pattern = fchar .. pattern
+
             local x = {byteutil.unpack(pattern, b)}
             for _, val in ipairs(x) do
                 table.insert(res, val)

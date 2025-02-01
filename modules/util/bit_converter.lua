@@ -19,14 +19,13 @@ function module.string_to_bytes(str)
 	return bytes
 end
 
-function module.bytes_to_string(bytes)
-	local len = byteutil.unpack("<H",{ bytes[1], bytes[2] })
+function module.bytes_to_string(bytes, pos)
+	local len = byteutil.unpack("<H",{ bytes[pos], bytes[pos+1] })
 
 	local str = ""
 
-	for i = 3, len+2 do
+	for i = pos+2, len+pos+1 do
 		str = str..string.char(bytes[i])
-    --print(string.char(bytes[i]), bytes[i])
 	end
 
 	return str
