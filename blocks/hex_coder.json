@@ -1,0 +1,17 @@
+{
+    "texture-faces":
+    [
+        "hex_coder_hole",
+        "hex_coder_side",
+        "hex_coder_hole",
+        "hex_coder_side",
+        "hex_coder",
+        "hex_coder_side"
+    ],
+    "light-passing": true,
+    "rotation": "pipe",
+    "sky-light-passing": true,
+    "hidden":false,
+    "script-name": "hex_coder",
+    "picking-item": "bitwise:d_t"
+}

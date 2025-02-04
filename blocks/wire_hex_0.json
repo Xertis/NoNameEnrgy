@@ -1,0 +1,14 @@
+{
+    "hidden": true,
+    "script-name": "wire_hex",
+    "rotation": "pipe",
+    "sky-light-passing": true,
+    "texture-faces": [
+        "wire_hex_0",
+        "wire_hex_0",
+        "hole_wire_hex_off",
+        "hole_wire_hex_off",
+        "wire_hex_0",
+        "wire_hex_0"
+    ]
+}

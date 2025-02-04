@@ -1,0 +1,5 @@
+{
+	"icon-type": "sprite",
+	"icon": "items:wire_hex",
+	"placing-block": "bitwise:wire_hex_0"
+}

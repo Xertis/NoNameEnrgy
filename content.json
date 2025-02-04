@@ -1,18 +1,4 @@
 {
-  "entities": [],
-  "items": [
-    "and",
-    "nand",
-    "nor",
-    "not",
-    "source",
-    "t_t",
-    "wire",
-    "xor",
-    "r_t",
-    "d_t",
-    "instant"
-  ],
   "blocks": [
     "wire_off",
     "wire_on",
@@ -35,6 +21,39 @@
     "d_t_off",
     "d_t_on",
     "instant_off",
-    "instant_on"
-  ]
+    "instant_on",
+    "wire_hex_0",
+    "wire_hex_1",
+    "wire_hex_10",
+    "wire_hex_11",
+    "wire_hex_12",
+    "wire_hex_13",
+    "wire_hex_14",
+    "wire_hex_15",
+    "wire_hex_2",
+    "wire_hex_3",
+    "wire_hex_4",
+    "wire_hex_5",
+    "wire_hex_6",
+    "wire_hex_7",
+    "wire_hex_8",
+    "wire_hex_9",
+    "hex_coder",
+    "hex_decoder"
+  ],
+  "items": [
+    "and",
+    "nand",
+    "nor",
+    "not",
+    "source",
+    "t_t",
+    "wire",
+    "xor",
+    "r_t",
+    "d_t",
+    "instant",
+    "wire_hex"
+  ],
+  "entities": []
 }
